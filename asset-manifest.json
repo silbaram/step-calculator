@@ -1,15 +1,13 @@
 {
-  "files": {
-    "main.css": "/step-calculator/static/css/main.4ea24607.css",
-    "main.js": "/step-calculator/static/js/main.d30bcd68.js",
-    "static/js/787.51be615e.chunk.js": "/step-calculator/static/js/787.51be615e.chunk.js",
-    "index.html": "/step-calculator/index.html",
-    "main.4ea24607.css.map": "/step-calculator/static/css/main.4ea24607.css.map",
-    "main.d30bcd68.js.map": "/step-calculator/static/js/main.d30bcd68.js.map",
-    "787.51be615e.chunk.js.map": "/step-calculator/static/js/787.51be615e.chunk.js.map"
-  },
-  "entrypoints": [
-    "static/css/main.4ea24607.css",
-    "static/js/main.d30bcd68.js"
-  ]
+  "main.js": "/step-calculator/static/js/main.2ddde6aa.chunk.js",
+  "main.js.map": "/step-calculator/static/js/main.2ddde6aa.chunk.js.map",
+  "static/js/1.26ddafdd.chunk.js": "/step-calculator/static/js/1.26ddafdd.chunk.js",
+  "static/js/1.26ddafdd.chunk.js.map": "/step-calculator/static/js/1.26ddafdd.chunk.js.map",
+  "static/js/2.9b77768c.chunk.js": "/step-calculator/static/js/2.9b77768c.chunk.js",
+  "static/js/2.9b77768c.chunk.js.map": "/step-calculator/static/js/2.9b77768c.chunk.js.map",
+  "runtime~main.js": "/step-calculator/static/js/runtime~main.a7e34573.js",
+  "runtime~main.js.map": "/step-calculator/static/js/runtime~main.a7e34573.js.map",
+  "index.html": "/step-calculator/index.html",
+  "precache-manifest.d60cd6e43a73a08829eb10dc16c2b0d9.js": "/step-calculator/precache-manifest.d60cd6e43a73a08829eb10dc16c2b0d9.js",
+  "service-worker.js": "/step-calculator/service-worker.js"
 }
