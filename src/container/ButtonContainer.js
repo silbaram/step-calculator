@@ -8,29 +8,29 @@ class ButtonContaier extends React.Component {
     render() {
         return (
             <Container maxWidth="sm">
-                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
-                    <CalculatorButton buttonDisplayName="1" />
-                    <CalculatorButton buttonDisplayName="2" />
-                    <CalculatorButton buttonDisplayName="3" />
-                    <CalculatorButton buttonDisplayName="3" />
+                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
+                    <CalculatorButton buttonDisplayName="1" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="2" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="3" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="3" colorCode="success" />
                 </Box>
-                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
-                    <CalculatorButton buttonDisplayName="4" />
-                    <CalculatorButton buttonDisplayName="5" />
-                    <CalculatorButton buttonDisplayName="6" />
-                    <CalculatorButton buttonDisplayName="6" />
+                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
+                    <CalculatorButton buttonDisplayName="4" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="5" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="6" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="6" colorCode="success" />
                 </Box>
-                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
-                    <CalculatorButton buttonDisplayName="7" />
-                    <CalculatorButton buttonDisplayName="8" />
-                    <CalculatorButton buttonDisplayName="9" />
-                    <CalculatorButton buttonDisplayName="9" />
+                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
+                    <CalculatorButton buttonDisplayName="7" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="8" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="9" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="9" colorCode="success" />
                 </Box>
-                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2 }}>
-                    <CalculatorButton buttonDisplayName="7" />
-                    <CalculatorButton buttonDisplayName="8" />
-                    <CalculatorButton buttonDisplayName="9" />
-                    <CalculatorButton buttonDisplayName="9" />
+                <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
+                    <CalculatorButton buttonDisplayName="7" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="8" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="9" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="9" colorCode="success" />
                 </Box>
             </Container>
         )
