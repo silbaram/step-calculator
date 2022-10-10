@@ -1,12 +1,11 @@
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Contaier from './container/Container'
-
+import React from 'react'
+import CalculatorContainer from './container/CalculatorContainer'
 
 function App() {
 
   return (
     <div>
-      <Contaier />
+      <CalculatorContainer />
     </div>
   );
 }

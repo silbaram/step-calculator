@@ -1,14 +1,13 @@
 import React from "react";
-import Button from 'react-bootstrap/Button'
+import Button from '@mui/material/Button';
 
 class CalculatorButton extends React.Component {
+
     render() {
         return (
-            <Button variant="light">
-                {this.props.displayName}
-            </Button>
-        )
+            <Button>{this.props.buttonDisplayName}</Button>
+        )   
     }
 }
 
-export default CalculatorButton
+export default CalculatorButton;
