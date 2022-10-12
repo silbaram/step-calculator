@@ -11,7 +11,6 @@ class CalculatorTextField extends React.Component {
                     fullWidth
                     color="info"
                     id="calculatorText"
-                    focused
                 />
             </Container>
         )
