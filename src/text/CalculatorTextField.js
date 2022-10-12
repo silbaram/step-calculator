@@ -9,8 +9,9 @@ class CalculatorTextField extends React.Component {
             <Container maxWidth="sm">
                 <TextField 
                     fullWidth
+                    color="info"
                     id="calculatorText"
-                    variant="standard"
+                    focused
                 />
             </Container>
         )
