@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import Container from '@mui/material/Container';
 import TextField from '@mui/material/TextField';
 
-class CalculatorTextField extends React.Component {
+class CalculatorTextField extends Component {
 
     render() {
         return (

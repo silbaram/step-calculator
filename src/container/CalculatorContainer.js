@@ -1,9 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import ButtonContaier from "./ButtonContainer";
 import CalculatorTextField from '../text/CalculatorTextField';
 
-class CalculatorContaier extends React.Component {
-
+class CalculatorContaier extends Component {
     render() {
         return (
             <>
