@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/step-calculator/precache-manifest.a14722037e38c7f15ea2948f1ff3873c.js"
+  "/step-calculator/precache-manifest.befda147294f5a42e307c73cfa0a2225.js"
 );
 
 workbox.clientsClaim();
