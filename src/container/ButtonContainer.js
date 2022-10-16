@@ -6,9 +6,14 @@ import CalculatorButton from "../button/CalculatorButton"
 class ButtonContaier extends Component {
 
     setEquation = equation => {
-        console.log("equation", equation)
+        const { setPresentCalculationEquation } = this.props
+        setPresentCalculationEquation(equation)
     }
 
+    setNumber = number => {
+        const { setPresentCalculationNumber } = this.props
+        setPresentCalculationNumber(number)
+    }
 
     render() {
         return (
@@ -17,29 +22,29 @@ class ButtonContaier extends Component {
                     <CalculatorButton buttonDisplayName="AC" colorCode="success" />
                     <CalculatorButton buttonDisplayName="%" colorCode="success" setEquation={this.setEquation} />
                     <CalculatorButton buttonDisplayName="/" colorCode="success" setEquation={this.setEquation} />
-                    <CalculatorButton buttonDisplayName="<" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="Del" colorCode="success" />
                 </Box>
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
-                    <CalculatorButton buttonDisplayName="7" colorCode="success" />
-                    <CalculatorButton buttonDisplayName="8" colorCode="success" />
-                    <CalculatorButton buttonDisplayName="9" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="7" colorCode="success" setNumber={this.setNumber} />
+                    <CalculatorButton buttonDisplayName="8" colorCode="success" setNumber={this.setNumber} />
+                    <CalculatorButton buttonDisplayName="9" colorCode="success" setNumber={this.setNumber} />
                     <CalculatorButton buttonDisplayName="*" colorCode="success" setEquation={this.setEquation} />
                 </Box>
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
-                    <CalculatorButton buttonDisplayName="4" colorCode="success" />
-                    <CalculatorButton buttonDisplayName="5" colorCode="success" />
-                    <CalculatorButton buttonDisplayName="6" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="4" colorCode="success" setNumber={this.setNumber} />
+                    <CalculatorButton buttonDisplayName="5" colorCode="success" setNumber={this.setNumber} />
+                    <CalculatorButton buttonDisplayName="6" colorCode="success" setNumber={this.setNumber} />
                     <CalculatorButton buttonDisplayName="-" colorCode="success" setEquation={this.setEquation} />
                 </Box>
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
-                    <CalculatorButton buttonDisplayName="1" colorCode="success" />
-                    <CalculatorButton buttonDisplayName="2" colorCode="success" />
-                    <CalculatorButton buttonDisplayName="3" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="1" colorCode="success" setNumber={this.setNumber} />
+                    <CalculatorButton buttonDisplayName="2" colorCode="success" setNumber={this.setNumber} />
+                    <CalculatorButton buttonDisplayName="3" colorCode="success" setNumber={this.setNumber} />
                     <CalculatorButton buttonDisplayName="+" colorCode="success" setEquation={this.setEquation} />
                 </Box>
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
                     <CalculatorButton buttonDisplayName="+/-" colorCode="success" />
-                    <CalculatorButton buttonDisplayName="0" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="0" colorCode="success" setNumber={this.setNumber} />
                     <CalculatorButton buttonDisplayName="." colorCode="success" />
                     <CalculatorButton buttonDisplayName="=" colorCode="success" />
                 </Box>

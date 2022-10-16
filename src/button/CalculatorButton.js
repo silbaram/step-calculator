@@ -4,10 +4,12 @@ import Button from '@mui/material/Button';
 class CalculatorButton extends Component {
 
     bindOffer = (buttonDisplayName) => {
-        const { setEquation } = this.props
+        const { setEquation, setNumber } = this.props
 
         if (setEquation !== undefined) {
             setEquation(buttonDisplayName)
+        } else if (setNumber !== undefined) {
+            setNumber(buttonDisplayName)
         }
     }
 

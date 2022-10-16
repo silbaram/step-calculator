@@ -11,6 +11,7 @@ class CalculatorTextField extends Component {
                     fullWidth
                     color="info"
                     id="calculatorText"
+                    value={this.props.calculatorFormulaText.leftNumber}
                 />
             </Container>
         )
