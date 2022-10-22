@@ -10,16 +10,16 @@ class CalculatorContaier extends Component {
             calculatorHistory: [],
             presentCalculationFormula: {
                 equation: null,
-                leftNumber: null,
-                rightNumber: null
-            }
+                leftNumber: [],
+                rightNumber: []
+            },
+            displayNumber: 0
         }
 
         console.log("this.state", this.state)
     }
 
     setEquation = equation => {
-
         this.setState({
             presentCalculationFormula: {
                 ...this.state.presentCalculationFormula,
@@ -30,29 +30,38 @@ class CalculatorContaier extends Component {
     }
 
     setNumber = number => {
-        
-        if (this.state.presentCalculationFormula.equation !== null) {
+        if (this.state.presentCalculationFormula.equation === null) {
             this.setState({
                 presentCalculationFormula: {
                     ...this.state.presentCalculationFormula,
-                    rightNumber: number
+                    leftNumber: this.state.presentCalculationFormula.leftNumber.concat(number)
                 }
+            },
+            function() {
+                this.setState({
+                    displayNumber: this.state.presentCalculationFormula.leftNumber.join('')
+                })
             })
         } else {
             this.setState({
                 presentCalculationFormula: {
                     ...this.state.presentCalculationFormula,
-                    leftNumber: number
-                }
+                    rightNumber: this.state.presentCalculationFormula.rightNumber.concat(number)
+                },
+                displayNumber: this.state.presentCalculationFormula.rightNumber.join('')
+            },
+            function() {
+                this.setState({
+                    displayNumber: this.state.presentCalculationFormula.leftNumber.join('')
+                })
             })
         }
-        console.log("this.state", this.state)
     }
 
     render() {
         return (
             <>
-                <CalculatorTextField calculatorFormulaText={this.state.presentCalculationFormula} />
+                <CalculatorTextField displayNumber={this.state.displayNumber} />
                 <ButtonContaier setPresentCalculationEquation={this.setEquation} setPresentCalculationNumber={this.setNumber} />
             </>
         )
