@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Button from '@mui/material/Button';
 
-class CalculatorButton extends Component {
+class NumberButton extends Component {
 
     bindOffer = (buttonDisplayName) => {
-        const { setEquation } = this.props
-        setEquation(buttonDisplayName)
+        const { setNumber } = this.props
+        setNumber(buttonDisplayName)
     }
 
     render() {
@@ -22,4 +22,4 @@ class CalculatorButton extends Component {
     }
 }
 
-export default CalculatorButton;
+export default NumberButton

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from '@mui/material/Button';
 
-class CalculatorButton extends Component {
+class EquationButton extends Component {
 
     bindOffer = (buttonDisplayName) => {
         const { setEquation } = this.props
@@ -11,8 +11,11 @@ class CalculatorButton extends Component {
     render() {
         return (
             <Button
+                style={{
+                    backgroundColor: this.props.colorCode,
+                }}
                 variant="contained"
-                color={this.props.colorCode}
+                // color={ this.props.colorCode }
                 size="small"
                 onClick={ () => this.bindOffer(this.props.buttonDisplayName) }
             >
@@ -22,4 +25,4 @@ class CalculatorButton extends Component {
     }
 }
 
-export default CalculatorButton;
+export default EquationButton

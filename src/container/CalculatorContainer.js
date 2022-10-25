@@ -15,8 +15,6 @@ class CalculatorContaier extends Component {
             },
             displayNumber: 0
         }
-
-        console.log("this.state", this.state)
     }
 
     setEquation = equation => {
@@ -26,7 +24,6 @@ class CalculatorContaier extends Component {
                 equation: equation
             }
         })
-        console.log("this.state", this.state)
     }
 
     setNumber = number => {
