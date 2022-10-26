@@ -18,12 +18,14 @@ class CalculatorContaier extends Component {
     }
 
     setEquation = equation => {
-        this.setState({
-            presentCalculationFormula: {
-                ...this.state.presentCalculationFormula,
-                equation: equation
-            }
-        })
+        if (this.state.presentCalculationFormula.leftNumber.size > 0) {
+            this.setState({
+                presentCalculationFormula: {
+                    ...this.state.presentCalculationFormula,
+                    equation: equation
+                }
+            })
+        }
     }
 
     setNumber = number => {
@@ -49,7 +51,7 @@ class CalculatorContaier extends Component {
             },
             function() {
                 this.setState({
-                    displayNumber: this.state.presentCalculationFormula.leftNumber.join('')
+                    displayNumber: this.state.presentCalculationFormula.rightNumber.join('')
                 })
             })
         }

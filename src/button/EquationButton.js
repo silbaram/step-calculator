@@ -15,7 +15,6 @@ class EquationButton extends Component {
                     backgroundColor: this.props.colorCode,
                 }}
                 variant="contained"
-                // color={ this.props.colorCode }
                 size="small"
                 onClick={ () => this.bindOffer(this.props.buttonDisplayName) }
             >
