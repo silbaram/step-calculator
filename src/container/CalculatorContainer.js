@@ -4,6 +4,10 @@ import CalculatorTextField from '../text/CalculatorTextField';
 
 class CalculatorContaier extends Component {
 
+    LEFT_INPUT_NUMBER_POSITION = "LEFT"
+    RIGHT_INPUT_NUMBER_POSITION = "RIGHT"
+    numberInputPositon = ''
+
     constructor(props) {
         super(props)
         this.state = {
@@ -18,13 +22,15 @@ class CalculatorContaier extends Component {
     }
 
     setEquation = equation => {
-        if (this.state.presentCalculationFormula.leftNumber.size > 0) {
+        if (this.numberInputPositon === this.LEFT_INPUT_NUMBER_POSITION || this.state.presentCalculationFormula.equation !== null) {
             this.setState({
                 presentCalculationFormula: {
                     ...this.state.presentCalculationFormula,
                     equation: equation
                 }
             })
+
+            return this.RIGHT_INPUT_NUMBER_POSITION
         }
     }
 
@@ -40,6 +46,8 @@ class CalculatorContaier extends Component {
                 this.setState({
                     displayNumber: this.state.presentCalculationFormula.leftNumber.join('')
                 })
+
+                this.numberInputPositon = this.LEFT_INPUT_NUMBER_POSITION
             })
         } else {
             this.setState({
@@ -53,6 +61,8 @@ class CalculatorContaier extends Component {
                 this.setState({
                     displayNumber: this.state.presentCalculationFormula.rightNumber.join('')
                 })
+
+                this.numberInputPositon = this.RIGHT_INPUT_NUMBER_POSITION
             })
         }
     }

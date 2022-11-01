@@ -10,8 +10,11 @@ class ButtonContaier extends Component {
     choiceEquation = undefined
     setEquation = equation => {
         const { setPresentCalculationEquation } = this.props
-        setPresentCalculationEquation(equation)
-        this.choiceEquation = equation
+        let inputNumberPostion = setPresentCalculationEquation(equation)
+
+        if (inputNumberPostion === 'RIGHT') {
+            this.choiceEquation = equation
+        }
     }
 
     setNumber = number => {
