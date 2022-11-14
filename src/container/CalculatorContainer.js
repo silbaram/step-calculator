@@ -15,7 +15,8 @@ class CalculatorContaier extends Component {
             presentCalculationFormula: {
                 equation: null,
                 leftNumber: [],
-                rightNumber: []
+                rightNumber: [],
+                calculateResult: 0
             },
             displayNumber: 0
         }
@@ -67,11 +68,19 @@ class CalculatorContaier extends Component {
         }
     }
 
+    calculate = () => {
+        if (this.state.presentCalculationFormula.equation === "/") {
+            this.setState({
+                displayNumber: this.state.presentCalculationFormula.leftNumber / this.state.presentCalculationFormula.rightNumber
+            })
+        }
+    }
+
     render() {
         return (
             <>
                 <CalculatorTextField displayNumber={this.state.displayNumber} />
-                <ButtonContaier setPresentCalculationEquation={this.setEquation} setPresentCalculationNumber={this.setNumber} />
+                <ButtonContaier setPresentCalculationEquation={this.setEquation} setPresentCalculationNumber={this.setNumber} calculate={this.calculate} />
             </>
         )
     }

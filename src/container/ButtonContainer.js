@@ -22,6 +22,11 @@ class ButtonContaier extends Component {
         setPresentCalculationNumber(number)
     }
 
+    setCalculate = () => {
+        const { calculate } = this.props
+        calculate()
+    }
+
 
     buttonColor = (equation) => {
         if (this.choiceEquation === equation) {
@@ -61,7 +66,7 @@ class ButtonContaier extends Component {
                     <CalculatorButton buttonDisplayName="+/-" colorCode="success" />
                     <NumberButton buttonDisplayName="0" colorCode="success" setNumber={this.setNumber} />
                     <CalculatorButton buttonDisplayName="." colorCode="success" />
-                    <CalculatorButton buttonDisplayName="=" colorCode="success" />
+                    <CalculatorButton buttonDisplayName="=" colorCode="success" setCalculate={this.setCalculate} />
                 </Box>
             </Container>
         )

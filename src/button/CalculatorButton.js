@@ -3,9 +3,9 @@ import Button from '@mui/material/Button';
 
 class CalculatorButton extends Component {
 
-    bindOffer = (buttonDisplayName) => {
-        const { setEquation } = this.props
-        setEquation(buttonDisplayName)
+    setCalculate = () => {
+        const { setCalculate } = this.props
+        setCalculate()
     }
 
     render() {
@@ -14,7 +14,7 @@ class CalculatorButton extends Component {
                 variant="contained"
                 color={this.props.colorCode}
                 size="small"
-                onClick={ () => this.bindOffer(this.props.buttonDisplayName) }
+                onClick={ () => this.setCalculate() }
             >
                 {this.props.buttonDisplayName}
             </Button>
