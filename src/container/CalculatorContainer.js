@@ -69,11 +69,34 @@ class CalculatorContaier extends Component {
     }
 
     calculate = () => {
+        if (this.state.presentCalculationFormula.leftNumber.length === 0 || this.state.presentCalculationFormula.rightNumber.length === 0) {
+            return
+        }
+
+        let isCalculate = false
         if (this.state.presentCalculationFormula.equation === "/") {
+            isCalculate = true
             this.setState({
-                displayNumber: this.state.presentCalculationFormula.leftNumber / this.state.presentCalculationFormula.rightNumber
+                displayNumber: this.state.presentCalculationFormula.leftNumber / this.state.presentCalculationFormula.rightNumber,
             })
         }
+
+        if (isCalculate) {
+            this.numberInputPositon = this.RIGHT_INPUT_NUMBER_POSITION
+            this.setState({
+                presentCalculationFormula: {
+                    ...this.state.presentCalculationFormula,
+                    equation: null
+                }
+            })
+        }
+
+        return isCalculate
+    }
+
+    //todo 계산 완료 후 처리 진행 해야 함
+    processingAfterCalculation = () => {
+
     }
 
     render() {

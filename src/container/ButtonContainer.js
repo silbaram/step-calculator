@@ -17,6 +17,10 @@ class ButtonContaier extends Component {
         }
     }
 
+    resetEquationButtonColor = () => {
+        this.choiceEquation = undefined
+    }
+
     setNumber = number => {
         const { setPresentCalculationNumber } = this.props
         setPresentCalculationNumber(number)
@@ -24,7 +28,9 @@ class ButtonContaier extends Component {
 
     setCalculate = () => {
         const { calculate } = this.props
-        calculate()
+        if (calculate()) {
+            this.resetEquationButtonColor()
+        }
     }
 
 
