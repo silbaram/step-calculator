@@ -77,33 +77,55 @@ class CalculatorContaier extends Component {
         if (this.state.presentCalculationFormula.equation === "/") {
             isCalculate = true
             this.setState({
-                displayNumber: this.state.presentCalculationFormula.leftNumber / this.state.presentCalculationFormula.rightNumber,
+                displayNumber: Number(this.state.presentCalculationFormula.leftNumber.join('')) / Number(this.state.presentCalculationFormula.rightNumber.join('')),
             })
         }
 
         if (isCalculate) {
-            this.numberInputPositon = this.RIGHT_INPUT_NUMBER_POSITION
-            this.setState({
-                presentCalculationFormula: {
-                    ...this.state.presentCalculationFormula,
-                    equation: null
-                }
-            })
+            this.processingAfterCalculation()
         }
 
         return isCalculate
     }
 
-    //todo 계산 완료 후 처리 진행 해야 함
     processingAfterCalculation = () => {
+        this.numberInputPositon = this.RIGHT_INPUT_NUMBER_POSITION
+        this.setState({
+            presentCalculationFormula: {
+                ...this.state.presentCalculationFormula,
+                leftNumber: this.state.displayNumber.replace(""),
+                equation: null
+            }
+        }, 
+        function() {
+            console.log("this.state", this.state)
+        })
+    }
 
+    valueInitialization = () => {
+        this.numberInputPositon = this.RIGHT_INPUT_NUMBER_POSITION
+        this.setState({
+            calculatorHistory: [],
+            presentCalculationFormula: {
+                equation: null,
+                leftNumber: [],
+                rightNumber: [],
+                calculateResult: 0
+            },
+            displayNumber: 0
+        })
     }
 
     render() {
         return (
             <>
                 <CalculatorTextField displayNumber={this.state.displayNumber} />
-                <ButtonContaier setPresentCalculationEquation={this.setEquation} setPresentCalculationNumber={this.setNumber} calculate={this.calculate} />
+                <ButtonContaier
+                    setPresentCalculationEquation={this.setEquation}
+                    setPresentCalculationNumber={this.setNumber}
+                    calculate={this.calculate}
+                    valueInitialization={this.valueInitialization}
+                />
             </>
         )
     }

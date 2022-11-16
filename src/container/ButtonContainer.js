@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import NumberButton from "../button/NumberButton"
 import EquationButton from "../button/EquationButton"
 import CalculatorButton from "../button/CalculatorButton"
+import Initialization from "../button/InitializationButton"
 
 class ButtonContaier extends Component {
 
@@ -33,40 +34,44 @@ class ButtonContaier extends Component {
         }
     }
 
-
-    buttonColor = (equation) => {
+    setButtonColor = (equation) => {
         if (this.choiceEquation === equation) {
             return "#21b6ae"    
         }
         return "#2e7d32"
     }
 
+    setValueInitialization = () => {
+        const { valueInitialization } = this.props
+        valueInitialization()
+    }
+
     render() {
         return (
             <Container maxWidth="sm">
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
-                    <CalculatorButton buttonDisplayName="AC" colorCode="success" />
-                    <EquationButton buttonDisplayName="%" colorCode={ this.buttonColor("%") } setEquation={this.setEquation} />
-                    <EquationButton buttonDisplayName="/" colorCode={ this.buttonColor("/") } setEquation={this.setEquation} />
+                    <Initialization buttonDisplayName="AC" colorCode="success" setValueInitialization={this.setValueInitialization} />
+                    <EquationButton buttonDisplayName="%" colorCode={ this.setButtonColor("%") } setEquation={this.setEquation} />
+                    <EquationButton buttonDisplayName="/" colorCode={ this.setButtonColor("/") } setEquation={this.setEquation} />
                     <CalculatorButton buttonDisplayName="Del" colorCode="success" />
                 </Box>
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
                     <NumberButton buttonDisplayName="7" colorCode="success" setNumber={this.setNumber} />
                     <NumberButton buttonDisplayName="8" colorCode="success" setNumber={this.setNumber} />
                     <NumberButton buttonDisplayName="9" colorCode="success" setNumber={this.setNumber} />
-                    <EquationButton buttonDisplayName="*" colorCode={ this.buttonColor("*") } setEquation={this.setEquation} />
+                    <EquationButton buttonDisplayName="*" colorCode={ this.setButtonColor("*") } setEquation={this.setEquation} />
                 </Box>
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
                     <NumberButton buttonDisplayName="4" colorCode="success" setNumber={this.setNumber} />
                     <NumberButton buttonDisplayName="5" colorCode="success" setNumber={this.setNumber} />
                     <NumberButton buttonDisplayName="6" colorCode="success" setNumber={this.setNumber} />
-                    <EquationButton buttonDisplayName="-" colorCode={ this.buttonColor("-") } setEquation={this.setEquation} />
+                    <EquationButton buttonDisplayName="-" colorCode={ this.setButtonColor("-") } setEquation={this.setEquation} />
                 </Box>
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
                     <NumberButton buttonDisplayName="1" colorCode="success" setNumber={this.setNumber} />
                     <NumberButton buttonDisplayName="2" colorCode="success" setNumber={this.setNumber} />
                     <NumberButton buttonDisplayName="3" colorCode="success" setNumber={this.setNumber} />
-                    <EquationButton buttonDisplayName="+" colorCode={ this.buttonColor("+") } setEquation={this.setEquation} />
+                    <EquationButton buttonDisplayName="+" colorCode={ this.setButtonColor("+") } setEquation={this.setEquation} />
                 </Box>
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
                     <CalculatorButton buttonDisplayName="+/-" colorCode="success" />
