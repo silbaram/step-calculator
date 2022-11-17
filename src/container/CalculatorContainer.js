@@ -74,18 +74,33 @@ class CalculatorContaier extends Component {
         }
 
         let isCalculate = false
-        if (this.state.presentCalculationFormula.equation === "/") {
-            isCalculate = true
-            this.setState({
-                displayNumber: Number(this.state.presentCalculationFormula.leftNumber.join('')) / Number(this.state.presentCalculationFormula.rightNumber.join('')),
-            })
+        let calculateValue = 0
+        if (this.state.presentCalculationFormula.equation === "%") {
+            // TODO % 계산이 되어야함
+        } else if (this.state.presentCalculationFormula.equation  === "/") {
+            calculateValue = Number(this.state.presentCalculationFormula.leftNumber.join('')) / Number(this.state.presentCalculationFormula.rightNumber.join(''))
+        } else if (this.state.presentCalculationFormula.equation  === "*") { 
+            calculateValue = Number(this.state.presentCalculationFormula.leftNumber.join('')) * Number(this.state.presentCalculationFormula.rightNumber.join(''))
+        } else if (this.state.presentCalculationFormula.equation  === "-") { 
+            calculateValue = Number(this.state.presentCalculationFormula.leftNumber.join('')) - Number(this.state.presentCalculationFormula.rightNumber.join(''))
+        } else if (this.state.presentCalculationFormula.equation  === "+") { 
+            calculateValue = Number(this.state.presentCalculationFormula.leftNumber.join('')) + Number(this.state.presentCalculationFormula.rightNumber.join(''))
         }
 
+        isCalculate = this.setCalcuateReultValue(calculateValue)
         if (isCalculate) {
             this.processingAfterCalculation()
         }
 
         return isCalculate
+    }
+
+    setCalcuateReultValue = (value) => {
+        this.setState({
+            displayNumber: value
+        })
+
+        return true
     }
 
     processingAfterCalculation = () => {
