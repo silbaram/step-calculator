@@ -134,7 +134,7 @@ class CalculatorContaier extends Component {
     deleteNumberValue = () => {
         if (this.state.presentCalculationFormula.leftNumber.length > 0 && this.numberInputPositon === this.LEFT_INPUT_NUMBER_POSITION) {
             this.setDeleteValue(this.LEFT_INPUT_NUMBER_POSITION, this.state.presentCalculationFormula.leftNumber)
-        } else if (this.numberInputPositon === this.RIGHT_INPUT_NUMBER_POSITION) {
+        } else if (this.state.presentCalculationFormula.rightNumber.length > 0 && this.numberInputPositon === this.RIGHT_INPUT_NUMBER_POSITION) {
             this.setDeleteValue(this.RIGHT_INPUT_NUMBER_POSITION, this.state.presentCalculationFormula.leftNumber)
         }
     }
@@ -159,7 +159,6 @@ class CalculatorContaier extends Component {
                 displayNumber: numberValueList.lengthLength === 0 ? 0 : numberValueList.join('')
             })
         }
-
     }
 
     render() {
