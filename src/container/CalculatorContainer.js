@@ -131,6 +131,37 @@ class CalculatorContaier extends Component {
         })
     }
 
+    deleteNumberValue = () => {
+        if (this.state.presentCalculationFormula.leftNumber.length > 0 && this.numberInputPositon === this.LEFT_INPUT_NUMBER_POSITION) {
+            this.setDeleteValue(this.LEFT_INPUT_NUMBER_POSITION, this.state.presentCalculationFormula.leftNumber)
+        } else if (this.numberInputPositon === this.RIGHT_INPUT_NUMBER_POSITION) {
+            this.setDeleteValue(this.RIGHT_INPUT_NUMBER_POSITION, this.state.presentCalculationFormula.leftNumber)
+        }
+    }
+
+    setDeleteValue = (inputPosition, numberValueList) => {
+        numberValueList.pop()
+
+        if (this.LEFT_INPUT_NUMBER_POSITION === inputPosition) {
+            this.setState({
+                presentCalculationFormula: {
+                    ...this.state.presentCalculationFormula,
+                    leftNumber: numberValueList
+                },
+                displayNumber: numberValueList.length === 0 ? 0 : numberValueList.join('')
+            })
+        } else if (this.RIGHT_INPUT_NUMBER_POSITION = inputPosition) {
+            this.setState({
+                presentCalculationFormula: {
+                    ...this.state.presentCalculationFormula,
+                    rightNumber: numberValueList
+                },
+                displayNumber: numberValueList.lengthLength === 0 ? 0 : numberValueList.join('')
+            })
+        }
+
+    }
+
     render() {
         return (
             <>
@@ -140,6 +171,7 @@ class CalculatorContaier extends Component {
                     setPresentCalculationNumber={this.setNumber}
                     calculate={this.calculate}
                     valueInitialization={this.valueInitialization}
+                    deleteNumberValue={this.deleteNumberValue}
                 />
             </>
         )
