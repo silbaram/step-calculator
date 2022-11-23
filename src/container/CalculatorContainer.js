@@ -75,16 +75,19 @@ class CalculatorContaier extends Component {
 
         let isCalculate = false
         let calculateValue = 0
+        let leftNumber = Number(this.state.presentCalculationFormula.leftNumber.join(''))
+        let rightNumber = Number(this.state.presentCalculationFormula.rightNumber.join(''))
+
         if (this.state.presentCalculationFormula.equation === "%") {
             // TODO % 계산이 되어야함
         } else if (this.state.presentCalculationFormula.equation  === "/") {
-            calculateValue = Number(this.state.presentCalculationFormula.leftNumber.join('')) / Number(this.state.presentCalculationFormula.rightNumber.join(''))
+            calculateValue = leftNumber / rightNumber
         } else if (this.state.presentCalculationFormula.equation  === "*") { 
-            calculateValue = Number(this.state.presentCalculationFormula.leftNumber.join('')) * Number(this.state.presentCalculationFormula.rightNumber.join(''))
+            calculateValue = leftNumber * rightNumber
         } else if (this.state.presentCalculationFormula.equation  === "-") { 
-            calculateValue = Number(this.state.presentCalculationFormula.leftNumber.join('')) - Number(this.state.presentCalculationFormula.rightNumber.join(''))
+            calculateValue = leftNumber - rightNumber
         } else if (this.state.presentCalculationFormula.equation  === "+") { 
-            calculateValue = Number(this.state.presentCalculationFormula.leftNumber.join('')) + Number(this.state.presentCalculationFormula.rightNumber.join(''))
+            calculateValue = leftNumber + rightNumber
         }
 
         isCalculate = this.setCalcuateReultValue(calculateValue)
