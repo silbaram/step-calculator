@@ -6,6 +6,7 @@ import EquationButton from "../button/EquationButton"
 import CalculatorButton from "../button/CalculatorButton"
 import Initialization from "../button/InitializationButton"
 import DeleteButton from "../button/DeleteButton"
+import DecimalPointButton from "../button/DecimalPointButton"
 
 class ButtonContaier extends Component {
 
@@ -52,6 +53,11 @@ class ButtonContaier extends Component {
         deleteNumberValue()
     }
 
+    setDecimalPointValue = () => {
+        const { setDecimalPointValue } = this.props
+        setDecimalPointValue()
+    }
+
     render() {
         return (
             <Container maxWidth="sm">
@@ -82,7 +88,7 @@ class ButtonContaier extends Component {
                 <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 2, margin: 1 }}>
                     <CalculatorButton buttonDisplayName="+/-" colorCode="success" />
                     <NumberButton buttonDisplayName="0" colorCode="success" setNumber={this.setNumber} />
-                    <CalculatorButton buttonDisplayName="." colorCode="success" />
+                    <DecimalPointButton buttonDisplayName="." colorCode="success" setDecimalPointValue={this.setDecimalPointValue} />
                     <CalculatorButton buttonDisplayName="=" colorCode="success" setCalculate={this.setCalculate} />
                 </Box>
             </Container>

@@ -7,6 +7,8 @@ class CalculatorContaier extends Component {
     LEFT_INPUT_NUMBER_POSITION = "LEFT"
     RIGHT_INPUT_NUMBER_POSITION = "RIGHT"
     numberInputPositon = ''
+    isLeftDeleteNumber = false
+    isRightDeleteNumber = false
 
     constructor(props) {
         super(props)
@@ -135,10 +137,10 @@ class CalculatorContaier extends Component {
     }
 
     deleteNumberValue = () => {
-        if (this.state.presentCalculationFormula.leftNumber.length > 0 && this.numberInputPositon === this.LEFT_INPUT_NUMBER_POSITION) {
+        if (this.isLeftNumberValue()) {
             this.setDeleteValue(this.LEFT_INPUT_NUMBER_POSITION, this.state.presentCalculationFormula.leftNumber)
-        } else if (this.state.presentCalculationFormula.rightNumber.length > 0 && this.numberInputPositon === this.RIGHT_INPUT_NUMBER_POSITION) {
-            this.setDeleteValue(this.RIGHT_INPUT_NUMBER_POSITION, this.state.presentCalculationFormula.leftNumber)
+        } else if (this.isRightNumberValue()) {
+            this.setDeleteValue(this.RIGHT_INPUT_NUMBER_POSITION, this.state.presentCalculationFormula.rightNumber)
         }
     }
 
@@ -164,6 +166,64 @@ class CalculatorContaier extends Component {
         }
     }
 
+    setDecimalPointValue = () => {
+        if ((this.isInitState() || this.isLeftNumberValue() && !this.isLeftDeleteNumber)) {
+            if (this.isInitState()) {
+                var setValue = "0."
+            } else {
+                var setValue = "."
+            }
+            this.setState({
+                presentCalculationFormula: {
+                    ...this.state.presentCalculationFormula,
+                    leftNumber: this.state.presentCalculationFormula.leftNumber.concat(setValue)
+                }
+            },
+            function() {
+                this.setState({
+                    displayNumber: this.state.presentCalculationFormula.leftNumber.join('')
+                })
+
+                this.isLeftDeleteNumber = true
+            })
+        } else if (this.isRightNumberValue() && !this.isRightDeleteNumber) {
+            this.setState({
+                presentCalculationFormula: {
+                    ...this.state.presentCalculationFormula,
+                    rightNumber: this.state.presentCalculationFormula.leftNumber.concat(".")
+                }
+            },
+            function() {
+                this.setState({
+                    displayNumber: this.state.presentCalculationFormula.rightNumber.join('')
+                })
+
+                this.isLeftDeleteNumber = true
+            })
+        }
+    }
+
+    isInitState = () => {
+        if (this.state.presentCalculationFormula.leftNumber.length == 0 && (this.numberInputPositon === '' || this.numberInputPositon === this.LEFT_INPUT_NUMBER_POSITION)) {
+            return true
+        }
+        return false
+    }
+
+    isLeftNumberValue = () => {
+        if (this.state.presentCalculationFormula.leftNumber.length > 0 && this.numberInputPositon === this.LEFT_INPUT_NUMBER_POSITION) {
+            return true
+        }
+        return false
+    }
+
+    isRightNumberValue = () => {
+        if (this.state.presentCalculationFormula.rightNumber.length > 0 && this.numberInputPositon === this.RIGHT_INPUT_NUMBER_POSITION) {
+            return true
+        }
+        return false
+    }
+
     render() {
         return (
             <>
@@ -174,6 +234,7 @@ class CalculatorContaier extends Component {
                     calculate={this.calculate}
                     valueInitialization={this.valueInitialization}
                     deleteNumberValue={this.deleteNumberValue}
+                    setDecimalPointValue={this.setDecimalPointValue}
                 />
             </>
         )
