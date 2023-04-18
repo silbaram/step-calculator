@@ -9,6 +9,7 @@ class CalculatorContaier extends Component {
     numberInputPositon = ''
     isLeftDeleteNumber = false
     isRightDeleteNumber = false
+    isCalculating = false //계산을 한번이상 했는가
 
     constructor(props) {
         super(props)
@@ -32,13 +33,22 @@ class CalculatorContaier extends Component {
                     equation: equation
                 }
             })
-
+            return this.RIGHT_INPUT_NUMBER_POSITION
+        } else if (this.isCalculating) {
+            this.setState({
+                presentCalculationFormula: {
+                    ...this.state.presentCalculationFormula,
+                    equation: equation
+                }
+            })
+            console.log("equation", equation)
+            console.info("this.state.presentCalculationFormula", this.state.presentCalculationFormula)
             return this.RIGHT_INPUT_NUMBER_POSITION
         }
     }
 
     setNumber = number => {
-        if (this.state.presentCalculationFormula.equation === null) {
+        if (this.state.presentCalculationFormula.equation === null && this.isCalculating == false) {
             this.setState({
                 presentCalculationFormula: {
                     ...this.state.presentCalculationFormula,
@@ -75,13 +85,14 @@ class CalculatorContaier extends Component {
             return
         }
 
+        this.isCalculating = true
         let isCalculate = false
         let calculateValue = 0
         let leftNumber = Number(this.state.presentCalculationFormula.leftNumber.join(''))
         let rightNumber = Number(this.state.presentCalculationFormula.rightNumber.join(''))
 
         if (this.state.presentCalculationFormula.equation === "%") {
-            // TODO % 계산이 되어야함
+            calculateValue = leftNumber % rightNumber
         } else if (this.state.presentCalculationFormula.equation  === "/") {
             calculateValue = leftNumber / rightNumber
         } else if (this.state.presentCalculationFormula.equation  === "*") { 
@@ -94,7 +105,7 @@ class CalculatorContaier extends Component {
 
         isCalculate = this.setCalcuateReultValue(calculateValue)
         if (isCalculate) {
-            this.processingAfterCalculation()
+            this.processingAfterCalculation(calculateValue)
         }
 
         return isCalculate
@@ -108,17 +119,18 @@ class CalculatorContaier extends Component {
         return true
     }
 
-    processingAfterCalculation = () => {
+    processingAfterCalculation = (value) => {
         this.numberInputPositon = this.RIGHT_INPUT_NUMBER_POSITION
         this.setState({
             presentCalculationFormula: {
                 ...this.state.presentCalculationFormula,
-                leftNumber: this.state.displayNumber.replace(""),
+                leftNumber: Array.from(String(value)),
+                rightNumber: [],
                 equation: null
             }
         }, 
         function() {
-            console.log("this.state", this.state)
+            console.log("processingAfterCalculation this.state", this.state)
         })
     }
 
